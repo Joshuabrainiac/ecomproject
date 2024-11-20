@@ -1,0 +1,519 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    background-color: whitesmoke;
+    padding-bottom: 5rem;
+}
+
+.container {
+    width: 100%;
+    background-color: whitesmoke;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(50px);
+}
+
+.searchContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.searchContent {
+    width: 30rem;
+    min-width: 20rem;
+    margin: 0 1rem;
+    height: 3rem;
+    border-radius: 3rem;
+    border: none;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 5px 5px 15px #d3d3d3;
+}
+
+.searchBar {
+    width: 100%;
+    outline: none;
+    margin: auto;
+    height: 100%;
+    border: none;
+    padding-left: 20px;
+    font-size: 1rem;
+}
+
+.iconTainer {
+    width: 100px;
+    background-color: rgb(0, 0, 0);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.apiRenderer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 80px;
+    padding: 3rem 5rem;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.searchIcon:hover {
+    font-size: 1.075rem;
+    cursor: pointer;
+}
+
+.searchIcon:active {
+    font-size: 1rem;
+}
+
+.product {
+    width: 20rem;
+    min-width: 20rem;
+    height: 31rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 5px 5px 15px lightgray;
+    padding: 10px;
+}
+
+.image {
+    height: 65%;
+    width: 100%;
+    border-radius: 15px;
+    background-color: rgb(238, 238, 238);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.additional {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product img {
+    width: 100%;
+}
+
+.tags {
+    border: 1.5px solid orange;
+    padding: 0.25em 0.45em;
+    font-size: small;
+    color: orange;
+    border-radius: 10px;
+}
+
+.stars {
+    color: orange;
+}
+
+.tagrow * {
+    margin-bottom: 5px;
+}
+
+.tagrow h2 {
+    height: 25px;
+    overflow: hidden;
+}
+
+.bodyrow {
+    margin-bottom: 15px;
+    height: 37px;
+    overflow: hidden;
+}
+
+.lastrow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.lastrow button {
+    background-color: rgb(243, 158, 0);
+    border: none;
+    width: 100%;
+    height: 2rem;
+    color: white;
+    border-radius: 5rem;
+    cursor: pointer;
+}
+
+.lastrow a {
+    color: white;
+    width: 60%;
+    text-decoration: none;
+}
+
+.lastrow button:hover {
+    transform: scale(1.025);
+}
+
+.lastrow button:active {
+    transform: scale(1);
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+}
+
+.page-number {
+    font-size: 1.25rem;
+}
+
+.navigation-buttons>.button {
+    width: 5rem;
+    height: 2rem;
+    background-color: black;
+    color: white;
+    text-align: center;
+    line-height: 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+
+
+/* Product page styles */
+
+header {
+    padding: 0.5rem 2rem 0;
+}
+
+.gobackButton {
+    background-color: black;
+    width: 2.5rem;
+    color: white;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 0.45rem;
+}
+
+main {
+    display: flex;
+    width: 80%;
+    height: 90dvh;
+    margin: 0 auto;
+}
+
+main>* {
+    width: 50%;
+    height: 100%;
+    padding-top: 17px;
+}
+
+.productPane {
+    border-right: 1px solid lightgray;
+}
+
+.imagerow {
+    width: 100%;
+    height: 65%;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.photo {
+    width: 80%;
+    background-color: rgb(235, 235, 235);
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.photo>img {
+    width: 100%;
+}
+
+.customers {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px 0;
+}
+
+.positioning {
+    border-radius: 10px;
+}
+
+.jamba .title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.jamba .sub {
+    color: gray;
+    font-size: 1rem;
+}
+
+.reviewRatinglol {
+    color: rgb(255, 183, 48);
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.rating-div {
+    position: absolute;
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(211, 211, 211, 0.836);
+    left: 120%;
+    top: 0;
+    padding: 0.5rem 1rem;
+    max-width: 13rem;
+    min-width: 10rem;
+    border-radius: 0.5rem;
+}
+
+.avatar {
+    width: 3rem;
+    height: 3rem;
+    background-color: rgb(180, 180, 180);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.tooltip {
+    background-color: rgba(255, 153, 0, 0.938);
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    border-radius: 0.25rem;
+    backdrop-filter: blur(20px);
+    position: absolute;
+    left: 110%;
+    top: 0;
+    white-space: nowrap;
+}
+
+.avatar>i {
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+    padding: auto;
+    line-height: 3rem;
+}
+
+.similartag {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.arrows {
+    width: 13%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrows>* {
+    background-color: lightgray;
+    border-radius: 50%;
+    height: 1.45rem;
+    width: 1.45rem;
+    line-height: 1.45rem;
+    text-align: center;
+    font-size: 0.65rem;
+}
+
+.arrows>*:first-child {
+    color: gray;
+}
+
+.similarproducts {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.simproduct {
+    width: 7rem;
+    height: 7rem;
+    background-color: lightgray;
+    margin-bottom: 0.5rem;
+}
+
+.simtag {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+}
+
+.simprice {
+    font-weight: 600;
+}
+
+/* Second Pane */
+
+.activitypane {
+    padding-left: 30px;
+}
+
+.proname {
+    font-size: 2.5em;
+    font-weight: 800;
+}
+
+.prohead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.favorite {
+    height: 2rem;
+    width: 2rem;
+    min-width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: lightgray;
+}
+
+.prodesc {
+    margin-bottom: 2.5rem;
+}
+
+.proprice {
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.reviews {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 2.5rem;
+}
+
+.change {
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+}
+
+.colorcircles {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.circle {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: lightcoral;
+    box-sizing: content-box;
+}
+
+.outlined {
+    outline: none;
+}
+
+.lastbuttons {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.lastbuttons>button {
+    padding: auto;
+    height: 3rem;
+    width: 10rem;
+    border: 2px solid orange;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.lastbuttons>button:hover {
+    transform: scale(1.025);
+}
+
+.lastbuttons>button:active {
+    transform: scale(1);
+}
+
+.buybutton {
+    background: none;
+    color: orange;
+}
+
+.addcartbutton {
+    background-color: orange;
+    color: white;
+}
+
+.faq {
+    max-height: 2rem;
+    overflow: hidden;
+    border-bottom: 1px solid lightgray;
+}
+
+.firstq {
+    max-height: 2rem;
+    transition: all 1s;
+}
+
+.secondq {
+    max-height: 2rem;
+    transition: all 1s;
+}
+
+.answer {
+    color: gray;
+    font-size: 0.9rem;
+}
+
+.questionline {
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.dropdown {
+    width: 1rem;
+    height: 1rem;
+    text-align: center;
+    line-height: 1rem;
+    font-size: 0.6rem;
+    color: gray;
+}
