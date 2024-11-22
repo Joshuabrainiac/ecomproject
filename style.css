@@ -65,8 +65,8 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 80px;
-    padding: 3rem 5rem;
+    gap: 3.5rem 1.5rem;
+    padding: 3rem 2rem;
 }
 
 .error {
@@ -85,8 +85,8 @@ body {
 }
 
 .product {
-    width: 20rem;
-    min-width: 20rem;
+    width: 18rem;
+    max-width: 20rem;
     height: 31rem;
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
@@ -516,4 +516,53 @@ main>* {
     line-height: 1rem;
     font-size: 0.6rem;
     color: gray;
+}
+
+/* Loading Animation and Styling */
+
+.title-box-loading {
+    height: 2.85rem;
+    width: 10rem;
+    background-color: lightgray;
+}
+
+.tag-box-loading {
+    height: 1rem;
+    width: 6rem;
+    background-color: lightgray;
+    border: none;
+    border-radius: 0;
+}
+
+.p-lines {
+    height: 0.5rem;
+    width: 100%;
+    background-color: lightgray;
+    margin-bottom: 0.25rem;
+}
+
+.button-loading {
+    animation: button-load 1500ms ease-in infinite;
+}
+
+.image-loading, .p-lines, .tag-box-loading, .title-box-loading {
+    animation: loading 1500ms ease-in infinite;
+}
+
+@keyframes loading {
+    from {
+        background-color: rgb(235, 235, 235);
+    }
+    to {
+        background-color: lightgray;
+    }
+}
+
+@keyframes button-load {
+    from {
+        opacity: 50%;
+    }
+    to {
+        opacity: 100%;
+    }
 }

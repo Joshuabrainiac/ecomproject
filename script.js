@@ -9,6 +9,7 @@ const searchBar = document.querySelector('.searchBar');
 const searchButton = document.querySelector('.searchIcon');
 
 let output = ``;
+let searchOutput = ``;
 
 window.addEventListener('scroll', changeHeader);
 
@@ -71,13 +72,6 @@ function callAPI() {
 			});
 			apiContainer.innerHTML = output;
 
-			searchButton.addEventListener('click', sortAPI);
-
-			function sortAPI() {
-				const userInput = searchBar.value;
-				console.log(userInput);
-			}
-            
 		})
 		.catch((error) => {
 			errorTag.innerHTML = `Oops! An error occured, ${error.name}: ${error.message}`;
@@ -111,3 +105,15 @@ function CheckPrevLimitation() {
 }
 
 CheckPrevLimitation();
+
+const newAPI = `https://dummyjson.com/products?limit=194`
+
+async function searchFunctionality() {
+	const response = await fetch(newAPI)
+	const data = await response.json()
+	data.products.map((query) => {
+			
+	})
+}
+
+searchFunctionality()
