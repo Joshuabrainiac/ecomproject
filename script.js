@@ -10,6 +10,7 @@ const searchButton = document.querySelector('.searchIcon');
 
 let output = ``;
 let searchOutput = ``;
+let theData;
 
 window.addEventListener('scroll', changeHeader);
 
@@ -41,41 +42,75 @@ function callAPI() {
 		.then((data) => {
 			console.log(data);
 
+			theData = data;
+
 			displayCurrentPageNumber();
 
-			data.products.map((item) => {
-				return (output += `<div class="product">
-                <div class="image"><img src="${item.images[0]}" alt=""></div>
-                <div class="content">
-                    <div class="tagrow">
-                        <h2>${item.title}</h2>
-                        <div class="additional">
-                            <div class="tags">${item.category}</div>
-                            <div class="stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bodyrow">
-                        <p>${item.description}</p>
-                    </div>
-                    <div class="lastrow">
-                        <div class="price">$${item.price}</div>
-                        <a href="product.html?product=${item.id}"><button type="button"><i class="fa-solid fa-cart-shopping"></i> &nbsp;  See Product Details</button></a>
-                    </div>
-                </div>
-            </div>`);
-			});
-			apiContainer.innerHTML = output;
+			renderHtml();
 
+			// data.products.map((item) => {
+			// 	return (output += `<div class="product">
+			//     <div class="image"><img src="${item.images[0]}" alt=""></div>
+			//     <div class="content">
+			//         <div class="tagrow">
+			//             <h2>${item.title}</h2>
+			//             <div class="additional">
+			//                 <div class="tags">${item.category}</div>
+			//                 <div class="stars">
+			//                     <i class="fa-solid fa-star"></i>
+			//                     <i class="fa-solid fa-star"></i>
+			//                     <i class="fa-solid fa-star"></i>
+			//                     <i class="fa-solid fa-star"></i>
+			//                     <i class="fa-regular fa-star"></i>
+			//                 </div>
+			//             </div>
+			//         </div>
+			//         <div class="bodyrow">
+			//             <p>${item.description}</p>
+			//         </div>
+			//         <div class="lastrow">
+			//             <div class="price">$${item.price}</div>
+			//             <a href="product.html?product=${item.id}"><button type="button"><i class="fa-solid fa-cart-shopping"></i> &nbsp;  See Product Details</button></a>
+			//         </div>
+			//     </div>
+			// </div>`);
+			// });
+			// apiContainer.innerHTML = output;
 		})
 		.catch((error) => {
 			errorTag.innerHTML = `Oops! An error occured, ${error.name}: ${error.message}`;
 		});
+}
+
+function renderHtml() {
+	theData.products.map((item) => {
+		return (output += `<div class="product">
+	    <div class="image"><img src="${item.images[0]}" alt=""></div>
+	    <div class="content">
+	        <div class="tagrow">
+	            <h2>${item.title}</h2>
+	            <div class="additional">
+	                <div class="tags">${item.category}</div>
+	                <div class="stars">
+	                    <i class="fa-solid fa-star"></i>
+	                    <i class="fa-solid fa-star"></i>
+	                    <i class="fa-solid fa-star"></i>
+	                    <i class="fa-solid fa-star"></i>
+	                    <i class="fa-regular fa-star"></i>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="bodyrow">
+	            <p>${item.description}</p>
+	        </div>
+	        <div class="lastrow">
+	            <div class="price">$${item.price}</div>
+	            <a href="product.html?product=${item.id}"><button type="button"><i class="fa-solid fa-cart-shopping"></i> &nbsp;  See Product Details</button></a>
+	        </div>
+	    </div>
+	</div>`);
+	});
+	apiContainer.innerHTML = output;
 }
 
 callAPI();
@@ -106,14 +141,50 @@ function CheckPrevLimitation() {
 
 CheckPrevLimitation();
 
-const newAPI = `https://dummyjson.com/products?limit=194`
+const newAPI = `https://dummyjson.com/products?limit=194`;
 
-async function searchFunctionality() {
-	const response = await fetch(newAPI)
-	const data = await response.json()
-	data.products.map((query) => {
-			
-	})
-}
+let newOutput = ``;
 
-searchFunctionality()
+searchButton.addEventListener('click', () => {
+	if (searchBar.value) {
+		console.log(`search filled with ${searchBar.value}`);
+		console.log(theData);
+
+		theData.products.map((item) => {
+			if (
+				item.title.toLowerCase().includes(searchBar.value.toLowerCase()) ||
+				item.category.toLowerCase().includes(searchBar.value.toLowerCase()) ||
+				item.description.toLowerCase().includes(searchBar.value.toLowerCase())
+			) {
+				console.log(item);
+				return (newOutput += `<div class="product">
+	    <div class="image"><img src="${item.images[0]}" alt=""></div>
+	    <div class="content">
+	        <div class="tagrow">
+	            <h2>${item.title}</h2>
+	            <div class="additional">
+	                <div class="tags">${item.category}</div>
+	                <div class="stars">
+	                    <i class="fa-solid fa-star"></i>
+	                    <i class="fa-solid fa-star"></i>
+	                    <i class="fa-solid fa-star"></i>
+	                    <i class="fa-solid fa-star"></i>
+	                    <i class="fa-regular fa-star"></i>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="bodyrow">
+	            <p>${item.description}</p>
+	        </div>
+	        <div class="lastrow">
+	            <div class="price">$${item.price}</div>
+	            <a href="product.html?product=${item.id}"><button type="button"><i class="fa-solid fa-cart-shopping"></i> &nbsp;  See Product Details</button></a>
+	        </div>
+	    </div>
+	</div>`);
+			}
+		});
+		apiContainer.innerHTML = newOutput;
+		newOutput = ''
+	}
+});

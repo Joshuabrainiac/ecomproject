@@ -198,7 +198,7 @@ async function fetchApi() {
 				});
 				item.style.outline = '2px solid gray';
 				item.style.outlineOffset = '0.125rem';
-				item.removeChild(tooltip);
+				tooltip.remove()
 				item.append(collectionCopy[item.id]);
 				console.log(collectionCopy, item.id);
 			}
