@@ -48,34 +48,7 @@ function callAPI() {
 
 			renderHtml();
 
-			// data.products.map((item) => {
-			// 	return (output += `<div class="product">
-			//     <div class="image"><img src="${item.images[0]}" alt=""></div>
-			//     <div class="content">
-			//         <div class="tagrow">
-			//             <h2>${item.title}</h2>
-			//             <div class="additional">
-			//                 <div class="tags">${item.category}</div>
-			//                 <div class="stars">
-			//                     <i class="fa-solid fa-star"></i>
-			//                     <i class="fa-solid fa-star"></i>
-			//                     <i class="fa-solid fa-star"></i>
-			//                     <i class="fa-solid fa-star"></i>
-			//                     <i class="fa-regular fa-star"></i>
-			//                 </div>
-			//             </div>
-			//         </div>
-			//         <div class="bodyrow">
-			//             <p>${item.description}</p>
-			//         </div>
-			//         <div class="lastrow">
-			//             <div class="price">$${item.price}</div>
-			//             <a href="product.html?product=${item.id}"><button type="button"><i class="fa-solid fa-cart-shopping"></i> &nbsp;  See Product Details</button></a>
-			//         </div>
-			//     </div>
-			// </div>`);
-			// });
-			// apiContainer.innerHTML = output;
+				
 		})
 		.catch((error) => {
 			errorTag.innerHTML = `Oops! An error occured, ${error.name}: ${error.message}`;
@@ -105,7 +78,7 @@ function renderHtml() {
 	        </div>
 	        <div class="lastrow">
 	            <div class="price">$${item.price}</div>
-	            <a href="product.html?product=${item.id}"><button type="button"><i class="fa-solid fa-cart-shopping"></i> &nbsp;  See Product Details</button></a>
+	            <a href="product.html?product=${item.id}"><button type="button">View Details</button></a>
 	        </div>
 	    </div>
 	</div>`);
@@ -140,8 +113,6 @@ function CheckPrevLimitation() {
 }
 
 CheckPrevLimitation();
-
-const newAPI = `https://dummyjson.com/products?limit=194`;
 
 let newOutput = ``;
 
@@ -178,7 +149,7 @@ searchButton.addEventListener('click', () => {
 	        </div>
 	        <div class="lastrow">
 	            <div class="price">$${item.price}</div>
-	            <a href="product.html?product=${item.id}"><button type="button"><i class="fa-solid fa-cart-shopping"></i> &nbsp;  See Product Details</button></a>
+	            <a href="product.html?product=${item.id}"><button type="button">View Details</button></a>
 	        </div>
 	    </div>
 	</div>`);
