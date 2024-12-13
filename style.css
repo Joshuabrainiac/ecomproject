@@ -6,13 +6,13 @@
 }
 
 body {
-    background-color: whitesmoke;
+    background-color: rgb(252, 252, 252);
     padding-bottom: 5rem;
 }
 
 .container {
     width: 100%;
-    background-color: whitesmoke;
+    background-color: rgb(238, 238, 238);
     height: 100px;
     display: flex;
     align-items: center;
@@ -36,7 +36,6 @@ body {
     border: none;
     overflow: hidden;
     display: flex;
-    box-shadow: 5px 5px 15px #d3d3d3;
 }
 
 .searchBar {
@@ -91,7 +90,7 @@ body {
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 5px 5px 15px lightgray;
+    box-shadow: 5px 5px 10px rgb(226, 226, 226);
     padding: 10px;
 }
 
@@ -150,7 +149,7 @@ body {
 .price {
     font-size: 1.25rem;
     font-weight: 700;
-    margin-left: 10px;
+    float: left;
 }
 
 .lastrow button {
@@ -286,8 +285,19 @@ main>* {
     font-size: 0.75rem;
 }
 
+.blur {
+    position: absolute;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.582);
+    backdrop-filter: blur(5px);
+    display: none;
+}
+
 .rating-div {
     position: absolute;
+    z-index: 200;
     background-color: white;
     box-shadow: 3px 3px 5px rgba(211, 211, 211, 0.836);
     left: 120%;
@@ -545,7 +555,10 @@ main>* {
     animation: button-load 1500ms ease-in infinite;
 }
 
-.image-loading, .p-lines, .tag-box-loading, .title-box-loading {
+.image-loading,
+.p-lines,
+.tag-box-loading,
+.title-box-loading {
     animation: loading 1500ms ease-in infinite;
 }
 
@@ -553,6 +566,7 @@ main>* {
     from {
         background-color: rgb(235, 235, 235);
     }
+
     to {
         background-color: lightgray;
     }
@@ -562,7 +576,83 @@ main>* {
     from {
         opacity: 50%;
     }
+
     to {
         opacity: 100%;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .apiRenderer {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem 0.8rem;
+        padding: 1rem;
+    }
+
+    .product {
+        width: 10rem;
+        height: 15rem;
+        border-radius: 1rem;
+        font-size: 0.75rem;
+        box-shadow: 5px 5px 10px rgb(226, 226, 226);
+        padding: 0.5rem;
+    }
+
+    .image {
+        height: 65%;
+        width: 100%;
+        border-radius: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .tags {
+        border: 1px solid orange;
+        padding: 0.125rem 0.25rem;
+        font-size: 0.5rem;
+        color: orange;
+        border-radius: 0.5rem;
+    }
+
+    .stars {
+        color: orange;
+        font-size: 0.5rem;
+    }
+
+    .tagrow * {
+        margin-bottom: 0.25rem;
+    }
+
+    .tagrow h2 {
+        height: 1.2rem;
+        overflow: hidden;
+    }
+
+    .bodyrow {
+        margin-bottom: 0.2rem;
+        height: 1rem;
+        overflow: hidden;
+        display: none;
+    }
+
+    .lastrow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .price {
+        font-size: 0.9rem;
+        float: left;
+    }
+
+    .lastrow button {
+        width: 100%;
+        height: 1.5rem;
+        font-size: 0.75rem;
+        border-radius: 1rem;
+        cursor: pointer;
     }
 }

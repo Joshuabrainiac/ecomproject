@@ -22,10 +22,8 @@ let limitation = 12;
 function changeHeader() {
 	if (window.scrollY > 20) {
 		header.style.backgroundColor = 'rgba(255, 166, 0, 0.95)';
-		searchBox.style.boxShadow = 'none';
 	} else {
-		header.style.backgroundColor = 'transparent';
-		searchBox.style.boxShadow = '5px 5px 15px lightgray';
+		header.style.backgroundColor = 'rgb(238, 238, 238)';
 	}
 }
 
