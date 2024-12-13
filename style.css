@@ -440,7 +440,8 @@ main>* {
 }
 
 .colorcircles {
-    width: 50%;
+    width: 15rem;
+    min-width: 13rem;
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
@@ -583,7 +584,32 @@ main>* {
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1100px) {
+    body {
+        background-color: rgb(235, 235, 235);
+        overflow: hidden;
+    }
+
+    .gobackButton {
+        position: absolute;
+        top: 1%;
+        left: 5%;
+        background-color: white;
+        width: 2rem;
+        color: black;
+        height: 2rem;
+        border-radius: 0.5rem;
+    }
+
+    .favorite {
+        position: absolute;
+        top: 1%;
+        right: 5%;
+        color: red;
+        min-width: 2rem;
+        background-color: white;
+    }
+
     .apiRenderer {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -630,6 +656,18 @@ main>* {
         overflow: hidden;
     }
 
+    .reviews {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin-bottom: 1rem;
+        font-size: small;
+    }
+
+    .proreview {
+        color: gray;
+    }
+
     .bodyrow {
         margin-bottom: 0.2rem;
         height: 1rem;
@@ -648,11 +686,126 @@ main>* {
         float: left;
     }
 
+    .proname {
+        font-size: 1.5em;
+    }
+
+    .prohead {
+        margin-bottom: 0.25rem;
+    }
+
     .lastrow button {
         width: 100%;
         height: 1.5rem;
         font-size: 0.75rem;
         border-radius: 1rem;
         cursor: pointer;
+    }
+
+    main {
+        display: block;
+        width: 100%;
+        height: 100dvh;
+        margin: 0;
+    }
+
+    main>* {
+        width: 100%;
+        height: 60%;
+        padding-top: 0;
+    }
+
+    .customers {
+        display: none;
+    }
+
+    .imagerow {
+        height: 100%;
+    }
+
+    .photo {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .productPane {
+        border: none;
+        height: 40%;
+    }
+
+    .activitypane {
+        padding: 1rem 1rem 0;
+        background-color: white;
+        border-radius: 1rem 1rem 0 0;
+    }
+
+    .faq {
+        display: none;
+    }
+
+    .change {
+        margin-bottom: 0.5rem;
+    }
+
+    .changecolor {
+        margin-bottom: 0;
+    }
+
+    .circle {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+
+    .colorcircles {
+        margin-bottom: 0.5rem;
+    }
+
+    .prodesc {
+        margin-bottom: 0.9rem;
+    }
+
+    .simproduct {
+        width: 4.5rem;
+        height: 4.5rem;
+        margin: 0 auto 0.7rem;
+    }
+
+    .similarproducts {
+        width: 100%;
+        max-width: 15rem;
+        gap: 0.75rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .similartag {
+        margin-bottom: 0.5rem;
+    }
+
+    .similartag h3 {
+        font-size: 1rem;
+    }
+
+    .proprice {
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+    }
+
+    .lastbuttons {
+        width: 100%;
+        max-width: 20rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .buybutton {
+        background-color: orange;
+        color: white;
+    }
+
+    .lastbuttons>button {
+        height: 2.5rem;
+        border-radius: 0.5rem;
     }
 }

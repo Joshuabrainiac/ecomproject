@@ -11,7 +11,10 @@ async function fetchApi() {
 		const data = await response.json();
 		console.log(data);
 
-		productPageContainer.innerHTML = `<div class="productPane">
+		console.log(window.innerWidth);
+
+		if (window.innerWidth > 992) {
+			productPageContainer.innerHTML = `<div class="productPane">
                 <div class="imagerow">
                     <div class="photo">
                         <img src="${data.images[0]}" alt="" class="main-image">
@@ -114,6 +117,94 @@ async function fetchApi() {
                     </div>
                 </div>
             </div>`;
+		} else {
+			productPageContainer.innerHTML = `<div class="productPane">
+                <div class="imagerow">
+                    <div class="photo">
+                        <img src="${data.images[0]}" alt="" class="main-image">
+                    </div>
+                    <div class="customers">
+                        <div class="positioning">
+                            <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                        </div>
+                        <div class="positioning">
+                            <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                        </div>
+                        <div class="positioning">
+                            <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="activitypane">
+                <div class="prohead">
+                    <div class="proname">${data.title}</div>
+                    <div class="favorite">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                </div>
+				<div class="reviews">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <div class="proreview">37 reviews</div>
+                </div>
+                <div class="prodesc">
+                    ${data.description}
+                </div>
+                <div class="changecolor">
+                    <div class="change">Color</div>
+                    <div class="colorcircles">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                </div>
+                <div class="similarrow">
+                    <div class="similartag">
+                        <h3>Similar Products</h3>
+                    </div>
+                    <div class="similarproducts">
+                        <div class="simi">
+                            <div class="simproduct"></div>
+                        </div>
+                        <div class="simi">
+                            <div class="simproduct"></div>
+                        </div>
+                        <div class="simi">
+                            <div class="simproduct"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lastbuttons">
+                	<div class="proprice">$${data.price}</div>
+                    <button type="button" class="buybutton">Buy Now</button>
+                </div>
+                <div class="faqs">
+                    <div class="firstq faq" style="max-height: 2rem;">
+                        <div class="questionline line1">
+                            <div class="question">How long until i get the delivery?</div>
+                            <div class="dropdown"><i class="fa-solid fa-chevron-down" id="first-chevron"></i></div>
+                        </div>
+                        <div class="answer">We typically take two to three working days</div>
+                    </div>
+                    <div class="secondq faq" style="max-height: 2rem;">
+                        <div class="questionline line2">
+                            <div class="question">How do I know I am not getting scammed?</div>
+                            <div class="dropdown"><i class="fa-solid fa-chevron-down" id="second-chevron"></i></div>
+                        </div>
+                        <div class="answer">That is exactly why we have the customer reviews. After u get ur delivery, u can as well
+                            as other customers choose to drop a review too.</div>
+                    </div>
+                </div>
+            </div>`;
+		}
 
 		const customer = document.querySelectorAll('.positioning');
 		const firstAccordion = document.querySelector('.line1');
@@ -270,7 +361,6 @@ async function fetchApi() {
 		function GoBackPage() {
 			window.history.back();
 		}
-        
 	} catch (error) {
 		console.error(
 			`The error is: ${error.name} and the details is this: ${error.message}`
