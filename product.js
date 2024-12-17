@@ -325,6 +325,8 @@ async function fetchApi() {
 				item.style.outlineOffset = '0.125rem';
 
 				coloredImage.style.filter = `hue-rotate(${degrees[item.id]}deg)`;
+                coloredImage.style.position = 'relative';
+				coloredImage.style.zIndex = '0';
 			}
 		});
 
